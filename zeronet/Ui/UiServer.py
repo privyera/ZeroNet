@@ -112,9 +112,9 @@ class UiServer:
         global UiRequest
         import imp
         import sys
-        importlib.reload(sys.modules["User.UserManager"])
-        importlib.reload(sys.modules["Ui.UiWebsocket"])
-        UiRequest = imp.load_source("UiRequest", "src/Ui/UiRequest.py").UiRequest
+        importlib.reload(sys.modules["zeronet.User.UserManager"])
+        importlib.reload(sys.modules["zeronet.Ui.UiWebsocket"])
+        UiRequest = imp.load_source("UiRequest", "zeronet/Ui/UiRequest.py").UiRequest
         # UiRequest.reload()
 
     # Bind and run the server

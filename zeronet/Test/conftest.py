@@ -38,7 +38,7 @@ else:
     CHROMEDRIVER_PATH = "chromedriver"
 SITE_URL = "http://127.0.0.1:43110"
 
-TEST_DATA_PATH  = 'src/Test/testdata'
+TEST_DATA_PATH  = 'zeronet/Test/testdata'
 sys.path.insert(0, os.path.abspath(os.path.dirname(__file__) + "/../lib"))  # External modules directory
 sys.path.insert(0, os.path.abspath(os.path.dirname(__file__) + "/.."))  # Imports relative to src dir
 

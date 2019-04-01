@@ -46,18 +46,18 @@ class Config(object):
     def getStartDir(self):
         this_file = os.path.abspath(__file__).replace("\\", "/").rstrip("cd")
 
-        if this_file.endswith("/Contents/Resources/core/src/Config.py"):
+        if this_file.endswith("/Contents/Resources/core/zeronet/Config.py"):
             # Running as ZeroNet.app
             if this_file.startswith("/Application") or this_file.startswith("/private") or this_file.startswith(os.path.expanduser("~/Library")):
                 # Runnig from non-writeable directory, put data to Application Support
                 start_dir = os.path.expanduser("~/Library/Application Support/ZeroNet")
             else:
                 # Running from writeable directory put data next to .app
-                start_dir = re.sub("/[^/]+/Contents/Resources/core/src/Config.py", "", this_file)
-        elif this_file.endswith("/core/src/Config.py"):
+                start_dir = re.sub("/[^/]+/Contents/Resources/core/zeronet/Config.py", "", this_file)
+        elif this_file.endswith("/core/zeronet/Config.py"):
             # Running as exe or source is at Application Support directory, put var files to outside of core dir
-            start_dir = this_file.replace("/core/src/Config.py", "")
-        elif this_file.endswith("usr/share/zeronet/src/Config.py"):
+            start_dir = this_file.replace("/core/zeronet/Config.py", "")
+        elif this_file.endswith("usr/share/zeronet/zeronet/Config.py"):
             # Running from non-writeable location, e.g., AppImage
             start_dir = os.path.expanduser("~/ZeroNet")
         else:

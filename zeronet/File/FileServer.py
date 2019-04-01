@@ -147,7 +147,7 @@ class FileServer(ConnectionServer):
     def reload(self):
         global FileRequest
         import imp
-        FileRequest = imp.load_source("FileRequest", "src/File/FileRequest.py").FileRequest
+        FileRequest = imp.load_source("FileRequest", "zeronet/File/FileRequest.py").FileRequest
 
     def portCheck(self):
         if config.offline:

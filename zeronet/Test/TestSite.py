@@ -4,7 +4,7 @@ import os
 import pytest
 from Site import SiteManager
 
-TEST_DATA_PATH = "src/Test/testdata"
+TEST_DATA_PATH = "zeronet/Test/testdata"
 
 @pytest.mark.usefixtures("resetSettings")
 class TestSite:
