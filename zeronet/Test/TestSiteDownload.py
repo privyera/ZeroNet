@@ -5,11 +5,11 @@ import mock
 import gevent
 import os
 
-from Connection import ConnectionServer
-from Config import config
-from File import FileRequest
-from File import FileServer
-from Site.Site import Site
+from zeronet.Connection import ConnectionServer
+from zeronet.Config import config
+from zeronet.File import FileRequest
+from zeronet.File import FileServer
+from zeronet.Site.Site import Site
 from . import Spy
 
 

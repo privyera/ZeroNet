@@ -3,9 +3,9 @@ import re
 import html
 import hashlib
 
-from Plugin import PluginManager
-from Translate import Translate
-from Config import config
+from zeronet.Plugin import PluginManager
+from zeronet.Translate import Translate
+from zeronet.Config import config
 
 from .ContentFilterStorage import ContentFilterStorage
 

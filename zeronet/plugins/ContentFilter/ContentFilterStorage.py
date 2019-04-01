@@ -4,10 +4,10 @@ import logging
 import collections
 import time
 
-from Debug import Debug
-from Plugin import PluginManager
-from Config import config
-from util import helper
+from zeronet.Debug import Debug
+from zeronet.Plugin import PluginManager
+from zeronet.Config import config
+from zeronet.util import helper
 
 class ContentFilterStorage(object):
     def __init__(self, site_manager):

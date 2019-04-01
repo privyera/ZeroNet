@@ -1,4 +1,4 @@
-import util
+import zeronet.util as util
 
 
 class ExampleClass(object):

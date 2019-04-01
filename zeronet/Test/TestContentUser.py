@@ -3,8 +3,8 @@ import io
 
 import pytest
 
-from Crypt import CryptBitcoin
-from Content.ContentManager import VerifyError, SignError
+from zeronet.Crypt import CryptBitcoin
+from zeronet.Content.ContentManager import VerifyError, SignError
 
 
 @pytest.mark.usefixtures("resetSettings")

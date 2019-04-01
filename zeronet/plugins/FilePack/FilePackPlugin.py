@@ -3,9 +3,9 @@ import re
 
 import gevent
 
-from Plugin import PluginManager
-from Config import config
-from Debug import Debug
+from zeronet.Plugin import PluginManager
+from zeronet.Config import config
+from zeronet.Debug import Debug
 
 # Keep archive open for faster reponse times for large sites
 archive_cache = {}

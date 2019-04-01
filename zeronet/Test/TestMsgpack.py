@@ -4,8 +4,8 @@ import os
 import msgpack
 import pytest
 
-from Config import config
-from util import Msgpack
+from zeronet.Config import config
+from zeronet.util import Msgpack
 from collections import OrderedDict
 
 

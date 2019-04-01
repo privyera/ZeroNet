@@ -1,8 +1,8 @@
 import logging, json, os, re, sys, time
 import gevent
-from Plugin import PluginManager
-from Config import config
-from Debug import Debug
+from zeronet.Plugin import PluginManager
+from zeronet.Config import config
+from zeronet.Debug import Debug
 from .domainLookup import lookupDomain
 
 allow_reload = False # No reload supported

@@ -3,9 +3,9 @@ import re
 
 import gevent
 
-from Config import config
-from Db import Db
-from util import helper
+from zeronet.Config import config
+from zeronet.Db import Db
+from zeronet.util import helper
 
 
 class BootstrapperDb(Db.Db):

@@ -2,11 +2,11 @@ import re
 import time
 import copy
 
-from Plugin import PluginManager
-from Translate import Translate
-from util import RateLimit
-from util import helper
-from Debug import Debug
+from zeronet.Plugin import PluginManager
+from zeronet.Translate import Translate
+from zeronet.util import RateLimit
+from zeronet.util import helper
+from zeronet.Debug import Debug
 try:
     import OptionalManager.UiWebsocketPlugin  # To make optioanlFileInfo merger sites compatible
 except Exception:

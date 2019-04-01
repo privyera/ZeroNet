@@ -2,8 +2,8 @@ import time
 
 import gevent
 
-from Plugin import PluginManager
-from Config import config
+from zeronet.Plugin import PluginManager
+from zeronet.Config import config
 from . import BroadcastServer
 
 

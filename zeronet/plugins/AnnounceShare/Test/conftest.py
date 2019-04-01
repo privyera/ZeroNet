@@ -1,3 +1,3 @@
-from src.Test.conftest import *
+from zeronet.Test.conftest import *
 
-from Config import config
+from zeronetConfig import config

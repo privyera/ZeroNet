@@ -1,7 +1,7 @@
 import time
 
-from Plugin import PluginManager
-from Translate import translate
+from zeronet.Plugin import PluginManager
+from zeronet.Translate import translate
 
 
 @PluginManager.registerTo("UiRequest")

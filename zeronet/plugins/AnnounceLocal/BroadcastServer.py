@@ -3,10 +3,8 @@ import logging
 import time
 from contextlib import closing
 
-from Debug import Debug
-from util import UpnpPunch
-from util import Msgpack
-
+from zeronet.Debug import Debug
+from zeronet.util import UpnpPunch, Msgpack
 
 class BroadcastServer(object):
     def __init__(self, service_name, listen_port=1544, listen_ip=''):

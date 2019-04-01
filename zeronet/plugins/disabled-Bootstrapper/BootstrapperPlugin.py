@@ -1,11 +1,11 @@
 import time
 
-from util import helper
+from zeronet.util import helper
 
-from Plugin import PluginManager
+from zeronet.Plugin import PluginManager
 from .BootstrapperDb import BootstrapperDb
-from Crypt import CryptRsa
-from Config import config
+from zeronet.Crypt import CryptRsa
+from zeronet.Config import config
 
 if "db" not in locals().keys():  # Share during reloads
     db = BootstrapperDb()

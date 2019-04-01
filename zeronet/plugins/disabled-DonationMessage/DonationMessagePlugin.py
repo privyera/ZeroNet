@@ -1,5 +1,5 @@
 import re
-from Plugin import PluginManager
+from zeronet.Plugin import PluginManager
 
 # Warning: If you modify the donation address then renmae the plugin's directory to "MyDonationMessage" to prevent the update script overwrite
 

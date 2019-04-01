@@ -8,16 +8,17 @@ import re
 import collections
 
 import bencode
-from lib.subtl.subtl import UdpTrackerClient
+from zeronet.lib.subtl.subtl import UdpTrackerClient
 import socks
 import sockshandler
 import gevent
 
-from Plugin import PluginManager
-from Config import config
-from Debug import Debug
-from util import helper
-import util
+import zeronet.util as util
+from zeronet.Plugin import PluginManager
+from zeronet.Config import config
+from zeronet.Debug import Debug
+from zeronet.util import helper
+from zeronet.util import Noparallel
 
 
 class AnnounceError(Exception):

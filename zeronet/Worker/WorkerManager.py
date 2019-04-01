@@ -4,11 +4,12 @@ import collections
 
 import gevent
 
+import zeronet.util as util
 from .Worker import Worker
-from Config import config
-from util import helper
-from Plugin import PluginManager
-import util
+from zeronet.Config import config
+from zeronet.util import helper
+from zeronet.Plugin import PluginManager
+from zeronet.util import Noparallel
 
 
 @PluginManager.acceptPlugins

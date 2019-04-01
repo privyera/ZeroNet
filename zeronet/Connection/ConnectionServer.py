@@ -9,15 +9,16 @@ import msgpack
 from gevent.server import StreamServer
 from gevent.pool import Pool
 
-import util
-from util import helper
-from Debug import Debug
+import zeronet.util as util
+from zeronet.util import Noparallel
+from zeronet.util import helper
+from zeronet.Debug import Debug
 from .Connection import Connection
-from Config import config
-from Crypt import CryptConnection
-from Crypt import CryptHash
-from Tor import TorManager
-from Site import SiteManager
+from zeronet.Config import config
+from zeronet.Crypt import CryptConnection
+from zeronet.Crypt import CryptHash
+from zeronet.Tor import TorManager
+from zeronet.Site import SiteManager
 
 
 class ConnectionServer(object):

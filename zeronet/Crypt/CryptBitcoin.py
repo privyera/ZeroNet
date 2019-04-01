@@ -1,9 +1,9 @@
 import logging
 import base64
 
-from util import OpensslFindPatch
-from lib import pybitcointools as btctools
-from Config import config
+from zeronet.util import OpensslFindPatch
+from zeronet.lib import pybitcointools as btctools
+from zeronet.Config import config
 
 lib_verify_best = "btctools"
 
@@ -11,7 +11,7 @@ lib_verify_best = "btctools"
 def loadLib(lib_name):
     global bitcoin, libsecp256k1message, lib_verify_best
     if lib_name == "libsecp256k1":
-        from lib import libsecp256k1message
+        from zeronet.lib import libsecp256k1message
         lib_verify_best = "libsecp256k1"
         logging.info("Libsecpk256k1 loaded")
     elif lib_name == "openssl":

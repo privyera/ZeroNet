@@ -1,6 +1,6 @@
 import re
 
-from Db.DbQuery import DbQuery
+from zeronet.Db.DbQuery import DbQuery
 
 
 class TestDbQuery:

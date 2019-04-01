@@ -9,12 +9,12 @@ import socket
 # Third party modules
 import gevent
 
-from Debug import Debug
-from Config import config
-from util import RateLimit
-from util import Msgpack
-from util import helper
-from Plugin import PluginManager
+from zeronet.Debug import Debug
+from zeronet.Config import config
+from zeronet.util import RateLimit
+from zeronet.util import Msgpack
+from zeronet.util import helper
+from zeronet.Plugin import PluginManager
 from contextlib import closing
 
 FILE_BUFF = 1024 * 512

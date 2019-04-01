@@ -8,15 +8,15 @@ import sys
 
 import gevent
 
-from Debug import Debug
-from Crypt import CryptHash
-from Config import config
-from util import helper
-from util import Diff
-from util import SafeRe
-from Peer import PeerHashfield
+from zeronet.Debug import Debug
+from zeronet.Crypt import CryptHash
+from zeronet.Config import config
+from zeronet.util import helper
+from zeronet.util import Diff
+from zeronet.util import SafeRe
+from zeronet.Peer import PeerHashfield
 from .ContentDbDict import ContentDbDict
-from Plugin import PluginManager
+from zeronet.Plugin import PluginManager
 
 
 class VerifyError(Exception):
@@ -728,7 +728,7 @@ class ContentManager(object):
         new_content["inner_path"] = inner_path
 
         # Verify private key
-        from Crypt import CryptBitcoin
+        from zeronet.Crypt import CryptBitcoin
         self.log.info("Verifying private key...")
         privatekey_address = CryptBitcoin.privatekeyToAddress(privatekey)
         valid_signers = self.getValidSigners(inner_path, new_content)
@@ -795,7 +795,7 @@ class ContentManager(object):
         return 1  # Todo: Multisig
 
     def verifyCert(self, inner_path, content):
-        from Crypt import CryptBitcoin
+        from zeronet.Crypt import CryptBitcoin
 
         rules = self.getRules(inner_path, content)
 
@@ -922,7 +922,7 @@ class ContentManager(object):
     # Return: None = Same as before, False = Invalid, True = Valid
     def verifyFile(self, inner_path, file, ignore_same=True):
         if inner_path.endswith("content.json"):  # content.json: Check using sign
-            from Crypt import CryptBitcoin
+            from zeronet.Crypt import CryptBitcoin
             try:
                 if type(file) is dict:
                     new_content = file

@@ -1,7 +1,7 @@
 import os
 
-from Config import config
-from Crypt import CryptConnection
+from zeronet.Config import config
+from zeronet.Crypt import CryptConnection
 
 
 class TestCryptConnection:

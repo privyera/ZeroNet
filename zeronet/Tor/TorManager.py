@@ -11,17 +11,17 @@ import atexit
 
 import gevent
 
-from Config import config
-from Crypt import CryptRsa
-from Site import SiteManager
+from zeronet.Config import config
+from zeronet.Crypt import CryptRsa
+from zeronet.Site import SiteManager
 import socks
 try:
     from gevent.coros import RLock
 except:
     from gevent.lock import RLock
-from util import helper
-from Debug import Debug
-from Plugin import PluginManager
+from zeronet.util import helper
+from zeronet.Debug import Debug
+from zeronet.Plugin import PluginManager
 
 
 @PluginManager.acceptPlugins

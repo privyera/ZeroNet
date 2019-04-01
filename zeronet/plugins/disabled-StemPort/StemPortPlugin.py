@@ -7,9 +7,9 @@ from stem import Signal
 from stem.control import Controller
 from stem.socket import ControlPort
 
-from Plugin import PluginManager
-from Config import config
-from Debug import Debug
+from zeronet.Plugin import PluginManager
+from zeronet.Config import config
+from zeronet.Debug import Debug
 
 if config.tor != "disable":
     from gevent import monkey

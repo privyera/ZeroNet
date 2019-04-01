@@ -9,14 +9,15 @@ from collections import defaultdict
 import sqlite3
 import gevent.event
 
-import util
-from util import SafeRe
-from Db.Db import Db
-from Debug import Debug
-from Config import config
-from util import helper
-from Plugin import PluginManager
-from Translate import translate as _
+import zeronet.util as util
+from zeronet.util import Noparallel
+from zeronet.util import SafeRe
+from zeronet.Db.Db import Db
+from zeronet.Debug import Debug
+from zeronet.Config import config
+from zeronet.util import helper
+from zeronet.Plugin import PluginManager
+from zeronet.Translate import translate as _
 
 
 @PluginManager.acceptPlugins

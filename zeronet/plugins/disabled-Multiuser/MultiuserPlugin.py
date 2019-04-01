@@ -2,16 +2,16 @@ import re
 import sys
 import json
 
-from Config import config
-from Plugin import PluginManager
-from Crypt import CryptBitcoin
+from zeronet.Config import config
+from zeronet.Plugin import PluginManager
+from zeronet.Crypt import CryptBitcoin
 from . import UserPlugin
 
 # We can only import plugin host clases after the plugins are loaded
 @PluginManager.afterLoad
 def importPluginnedClasses():
     global UserManager
-    from User import UserManager
+    from zeronet.User import UserManager
 
 try:
     local_master_addresses = set(json.load(open("%s/users.json" % config.data_dir)).keys())  # Users in users.json

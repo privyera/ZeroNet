@@ -1,8 +1,7 @@
 import time
-
-import util
 import gevent
 
+import zeronet.util as util
 
 class ExampleClass(object):
     def __init__(self):

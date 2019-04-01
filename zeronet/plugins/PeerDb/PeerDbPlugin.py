@@ -4,7 +4,7 @@ import random
 import atexit
 
 import gevent
-from Plugin import PluginManager
+from zeronet.Plugin import PluginManager
 
 
 @PluginManager.registerTo("ContentDb")

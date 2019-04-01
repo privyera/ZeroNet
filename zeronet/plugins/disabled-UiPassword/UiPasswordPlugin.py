@@ -5,9 +5,9 @@ import json
 import re
 
 
-from Config import config
-from Plugin import PluginManager
-from util import helper
+from zeronet.Config import config
+from zeronet.Plugin import PluginManager
+from zeronet.util import helper
 
 
 ICON_FNAME = "favicon.ico"
@@ -125,7 +125,7 @@ class ConfigPlugin(object):
         return super(ConfigPlugin, self).createArguments()
 
 
-from Translate import translate as lang
+from zeronet.Translate import translate as lang
 @PluginManager.registerTo("UiWebsocket")
 class UiWebsocketPlugin(object):
     def actionUiLogout(self, to):

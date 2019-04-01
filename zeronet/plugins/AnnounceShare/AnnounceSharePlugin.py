@@ -6,9 +6,9 @@ import atexit
 
 import gevent
 
-from Config import config
-from Plugin import PluginManager
-from util import helper
+from zeronet.Config import config
+from zeronet.Plugin import PluginManager
+from zeronet.util import helper
 
 
 class TrackerStorage(object):

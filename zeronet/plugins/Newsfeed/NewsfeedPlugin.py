@@ -1,9 +1,9 @@
 import time
 import re
 
-from Plugin import PluginManager
-from Db.DbQuery import DbQuery
-from Debug import Debug
+from zeronet.Plugin import PluginManager
+from zeronet.Db.DbQuery import DbQuery
+from zeronet.Debug import Debug
 
 
 @PluginManager.registerTo("UiWebsocket")
@@ -30,7 +30,7 @@ class UiWebsocketPlugin(object):
         if "ADMIN" not in self.site.settings["permissions"]:
             return self.response(to, "FeedQuery not allowed")
 
-        from Site import SiteManager
+        from zeronet.Site import SiteManager
         rows = []
         stats = []
 
@@ -108,7 +108,7 @@ class UiWebsocketPlugin(object):
         if "ADMIN" not in self.site.settings["permissions"]:
             return self.response(to, "FeedSearch not allowed")
 
-        from Site import SiteManager
+        from zeronet.Site import SiteManager
         rows = []
         stats = []
         num_sites = 0

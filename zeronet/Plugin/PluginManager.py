@@ -5,10 +5,10 @@ import shutil
 import time
 from collections import defaultdict
 
-from Debug import Debug
-from Config import config
+from zeronet.Debug import Debug
+from zeronet.Config import config
 
-import plugins
+from zeronet import plugins
 
 import importlib
 
@@ -28,7 +28,7 @@ class PluginManager:
         self.migratePlugins()
 
         if config.debug:  # Auto reload Plugins on file change
-            from Debug import DebugReloader
+            from zeronet.Debug import DebugReloader
             DebugReloader.watcher.addCallback(self.reloadPlugins)
 
     def migratePlugins(self):

@@ -3,9 +3,9 @@ import time
 import pytest
 import mock
 
-from File import FileServer
-from Crypt import CryptRsa
-from Config import config
+from zeronet.File import FileServer
+from zeronet.Crypt import CryptRsa
+from zeronet.Config import config
 
 @pytest.mark.usefixtures("resetSettings")
 @pytest.mark.usefixtures("resetTempSettings")

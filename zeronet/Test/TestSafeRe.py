@@ -1,4 +1,4 @@
-from util import SafeRe
+from zeronet.util import SafeRe
 
 import pytest
 

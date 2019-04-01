@@ -3,8 +3,8 @@ import struct
 import os
 
 import pytest
-from util import helper
-from Config import config
+from zeronet.util import helper
+from zeronet.Config import config
 
 
 @pytest.mark.usefixtures("resetSettings")

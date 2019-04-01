@@ -7,13 +7,13 @@ import time
 import json
 import io
 import gevent
-import Resources
+from zeronet import Resources
 
-from Config import config
-from Plugin import PluginManager
-from Debug import Debug
-from Translate import Translate
-from util import helper
+from zeronet.Config import config
+from zeronet.Plugin import PluginManager
+from zeronet.Debug import Debug
+from zeronet.Translate import Translate
+from zeronet.util import helper
 from .ZipStream import ZipStream
 
 from . import media
@@ -48,7 +48,7 @@ class UiRequestPlugin(object):
                 # If debugging merge *.css to all.css and *.js to all.js
                 # Input files are read from file system, not as resources
                 if config.debug:
-                    from Debug import DebugMedia
+                    from zeronet.Debug import DebugMedia
                     DebugMedia.merge(*(os.path.join(res_pkg.split('.') + [res_file])))
 
                 if match.gruop("ext") == "js":
@@ -573,7 +573,7 @@ class UiWebsocketPlugin(object):
     def downloadGeoLiteDb(self, db_path):
         import gzip
         import shutil
-        from util import helper
+        from zeronet.util import helper
 
         self.log.info("Downloading GeoLite2 City database...")
         self.cmd("progress", ["geolite-info", _["Downloading GeoLite2 City database (one time only, ~20MB)..."], 0])

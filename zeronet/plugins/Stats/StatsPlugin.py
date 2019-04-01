@@ -4,11 +4,11 @@ import os
 import json
 from collections import OrderedDict
 
-from Plugin import PluginManager
-from Config import config
-from util import helper
-from Debug import Debug
-from Db import Db
+from zeronet.Plugin import PluginManager
+from zeronet.Config import config
+from zeronet.util import helper
+from zeronet.Debug import Debug
+from zeronet.Db import Db
 
 
 @PluginManager.registerTo("UiRequest")
@@ -40,9 +40,9 @@ class UiRequestPlugin(object):
     def actionStats(self):
         import gc
         import sys
-        from Ui import UiRequest
-        from Crypt import CryptConnection
-        import main
+        from zeronet.Ui import UiRequest
+        from zeronet.Crypt import CryptConnection
+        from zeronet import main
 
 
         hpy = None
@@ -142,7 +142,7 @@ class UiRequestPlugin(object):
         # Trackers
         yield "<br><br><b>Trackers:</b><br>"
         yield "<table class='trackers'><tr> <th>address</th> <th>request</th> <th>successive errors</th> <th>last_request</th></tr>"
-        from Site import SiteAnnouncer # importing at the top of the file breaks plugins
+        from zeronet.Site import SiteAnnouncer # import at top of the file breaks plugins
         for tracker_address, tracker_stat in sorted(SiteAnnouncer.global_stats.items()):
             yield self.formatTableRow([
                 ("%s", tracker_address),
@@ -155,7 +155,7 @@ class UiRequestPlugin(object):
         if "AnnounceShare" in PluginManager.plugin_manager.plugin_names:
             yield "<br><br><b>Shared trackers:</b><br>"
             yield "<table class='trackers'><tr> <th>address</th> <th>added</th> <th>found</th> <th>latency</th> <th>successive errors</th> <th>last_success</th></tr>"
-            from AnnounceShare import AnnounceSharePlugin
+            from zeronet.plugins.AnnounceShare import AnnounceSharePlugin
             for tracker_address, tracker_stat in sorted(AnnounceSharePlugin.tracker_storage.getTrackers().items()):
                 yield self.formatTableRow([
                     ("%s", tracker_address),
@@ -318,13 +318,13 @@ class UiRequestPlugin(object):
         for obj in objs:
             yield " - %.1fkb: %s<br>" % (self.getObjSize(obj, hpy), html.escape(repr(obj)))
 
-        from Worker import Worker
+        from zeronet.Worker import Worker
         objs = [obj for obj in gc.get_objects() if isinstance(obj, Worker)]
         yield "<br>Workers (%s):<br>" % len(objs)
         for obj in objs:
             yield " - %.1fkb: %s<br>" % (self.getObjSize(obj, hpy), html.escape(repr(obj)))
 
-        from Connection import Connection
+        from zeronet.Connection import Connection
         objs = [obj for obj in gc.get_objects() if isinstance(obj, Connection)]
         yield "<br>Connections (%s):<br>" % len(objs)
         for obj in objs:
@@ -342,7 +342,7 @@ class UiRequestPlugin(object):
         for obj in objs:
             yield " - %.1fkb: %s<br>" % (self.getObjSize(obj, hpy), html.escape(repr(obj)))
 
-        from Site.Site import Site
+        from zeronet.Site.Site import Site
         objs = [obj for obj in gc.get_objects() if isinstance(obj, Site)]
         yield "<br>Sites (%s):<br>" % len(objs)
         for obj in objs:
@@ -358,7 +358,7 @@ class UiRequestPlugin(object):
         for obj in objs:
             yield " - %.1fkb: %s<br>" % (self.getObjSize(obj, hpy), html.escape(repr(obj)))
 
-        from Peer import Peer
+        from zeronet.Peer import Peer
         objs = [obj for obj in gc.get_objects() if isinstance(obj, Peer)]
         yield "<br>Peers (%s):<br>" % len(objs)
         for obj in objs:
@@ -536,7 +536,7 @@ class UiRequestPlugin(object):
 
         # CryptBitcoin
         yield "<br>CryptBitcoin:<br>"
-        from Crypt import CryptBitcoin
+        from zeronet.Crypt import CryptBitcoin
 
         # seed = CryptBitcoin.newSeed()
         # yield "- Seed: %s<br>" % seed
@@ -576,7 +576,7 @@ class UiRequestPlugin(object):
 
         # CryptHash
         yield "<br>CryptHash:<br>"
-        from Crypt import CryptHash
+        from zeronet.Crypt import CryptHash
         import io
 
         data = io.BytesIO(b"Hello" * 1024 * 1024)  # 5m
@@ -604,7 +604,7 @@ class UiRequestPlugin(object):
                 yield "."
 
         # Msgpack
-        from util import Msgpack
+        from zeronet.util import Msgpack
         yield "<br>Msgpack: (version: %s)<br>" % ".".join(map(str, Msgpack.msgpack.version))
         binary = b'fqv\xf0\x1a"e\x10,\xbe\x9cT\x9e(\xa5]u\x072C\x8c\x15\xa2\xa8\x93Sw)\x19\x02\xdd\t\xfb\xf67\x88\xd9\xee\x86\xa1\xe4\xb6,\xc6\x14\xbb\xd7$z\x1d\xb2\xda\x85\xf5\xa0\x97^\x01*\xaf\xd3\xb0!\xb7\x9d\xea\x89\xbbh8\xa1"\xa7]e(@\xa2\xa5g\xb7[\xae\x8eE\xc2\x9fL\xb6s\x19\x19\r\xc8\x04S\xd0N\xe4]?/\x01\xea\xf6\xec\xd1\xb3\xc2\x91\x86\xd7\xf4K\xdf\xc2lV\xf4\xe8\x80\xfc\x8ep\xbb\x82\xb3\x86\x98F\x1c\xecS\xc8\x15\xcf\xdc\xf1\xed\xfc\xd8\x18r\xf9\x80\x0f\xfa\x8cO\x97(\x0b]\xf1\xdd\r\xe7\xbf\xed\x06\xbd\x1b?\xc5\xa0\xd7a\x82\xf3\xa8\xe6@\xf3\ri\xa1\xb10\xf6\xd4W\xbc\x86\x1a\xbb\xfd\x94!bS\xdb\xaeM\x92\x00#\x0b\xf7\xad\xe9\xc2\x8e\x86\xbfi![%\xd31]\xc6\xfc2\xc9\xda\xc6v\x82P\xcc\xa9\xea\xb9\xff\xf6\xc8\x17iD\xcf\xf3\xeeI\x04\xe9\xa1\x19\xbb\x01\x92\xf5nn4K\xf8\xbb\xc6\x17e>\xa7 \xbbv'
         data = OrderedDict(

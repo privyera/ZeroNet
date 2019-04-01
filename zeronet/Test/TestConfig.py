@@ -1,6 +1,6 @@
 import pytest
 
-import Config
+import zeronet.Config as Config
 
 
 @pytest.mark.usefixtures("resetSettings")

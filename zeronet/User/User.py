@@ -5,12 +5,13 @@ import binascii
 
 import gevent
 
-import util
-from Crypt import CryptBitcoin
-from Plugin import PluginManager
-from Config import config
-from util import helper
-from Debug import Debug
+import zeronet.util as util
+from zeronet.Crypt import CryptBitcoin
+from zeronet.Plugin import PluginManager
+from zeronet.Config import config
+from zeronet.util import helper
+from zeronet.util import Noparallel
+from zeronet.Debug import Debug
 
 
 @PluginManager.acceptPlugins

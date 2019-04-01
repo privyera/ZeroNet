@@ -2,9 +2,9 @@ import os
 import sys
 import atexit
 
-from Plugin import PluginManager
-from Config import config
-from Translate import Translate
+from zeronet.Plugin import PluginManager
+from zeronet.Config import config
+from zeronet.Translate import Translate
 
 allow_reload = False  # No source reload supported in this plugin
 
@@ -20,7 +20,7 @@ class ActionsPlugin(object):
         global notificationicon, winfolders
         from .lib import notificationicon, winfolders
         import gevent.threadpool
-        import main
+        from zeronet import main
 
         self.main = main
 

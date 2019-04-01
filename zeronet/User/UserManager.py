@@ -5,8 +5,8 @@ import time
 
 # ZeroNet Modules
 from .User import User
-from Plugin import PluginManager
-from Config import config
+from zeronet.Plugin import PluginManager
+from zeronet.Config import config
 
 
 @PluginManager.acceptPlugins

@@ -5,15 +5,17 @@ import binascii
 import pytest
 import mock
 
-from Connection import ConnectionServer
-from Content.ContentManager import VerifyError
-from File import FileServer
-from File import FileRequest
-from Worker import WorkerManager
-from Peer import Peer
-from Bigfile import BigfilePiecefield, BigfilePiecefieldPacked
-from Test import Spy
-from util import Msgpack
+from zeronet.Connection import ConnectionServer
+from zeronet.Content.ContentManager import VerifyError
+from zeronet.File import FileServer
+from zeronet.File import FileRequest
+from zeronet.Worker import WorkerManager
+from zeronet.Peer import Peer
+from zeronet.Test import Spy
+from zeronet.util import Msgpack
+
+from zeronet.plugins.Bigfile.BigfilePiecefield \
+        import BigfilePiecefield, BigfilePiecefieldPacked
 
 @pytest.mark.usefixtures("resetSettings")
 @pytest.mark.usefixtures("resetTempSettings")

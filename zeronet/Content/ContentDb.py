@@ -1,10 +1,10 @@
 import time
 import os
 
-from Db.Db import Db
-from Config import config
-from Plugin import PluginManager
-from Debug import Debug
+from zeronet.Db.Db import Db
+from zeronet.Config import config
+from zeronet.Plugin import PluginManager
+from zeronet.Debug import Debug
 
 
 @PluginManager.acceptPlugins

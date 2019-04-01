@@ -1,11 +1,11 @@
 import os
 import io
 import re
-import Resources
+from zeronet import Resources
 
-from Plugin import PluginManager
-from Config import config
-from Translate import Translate
+from zeronet.Plugin import PluginManager
+from zeronet.Config import config
+from zeronet.Translate import Translate
 
 from . import media
 
@@ -18,7 +18,7 @@ if "_" not in locals():
 
 @PluginManager.afterLoad
 def importPluginnedClasses():
-    from Ui import UiWebsocket
+    from zeronet.Ui import UiWebsocket
     UiWebsocket.admin_commands.add("configList")
 
 @PluginManager.registerTo("UiRequest")
@@ -47,7 +47,7 @@ class UiRequestPlugin(object):
             # If debugging merge *.css to all.css and *.js to all.js
             # Input files are read from the file system, not as resources
             if config.debug and res_file.startswith("all."):
-                from Debug import DebugMedia
+                from zeronet.Debug import DebugMedia
                 DebugMedia.merge(os.path.join(*(res_pkg.split('.') + [res_file])))
 
             match = re.match(".*(?P<ext>js|html)$", res_file)

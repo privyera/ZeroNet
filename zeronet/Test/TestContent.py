@@ -4,9 +4,9 @@ import io
 
 import pytest
 
-from Crypt import CryptBitcoin
-from Content.ContentManager import VerifyError, SignError
-from util.SafeRe import UnsafePatternError
+from zeronet.Crypt import CryptBitcoin
+from zeronet.Content.ContentManager import VerifyError, SignError
+from zeronet.util.SafeRe import UnsafePatternError
 
 
 @pytest.mark.usefixtures("resetSettings")

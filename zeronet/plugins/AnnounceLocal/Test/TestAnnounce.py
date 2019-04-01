@@ -5,9 +5,10 @@ import gevent
 import pytest
 import mock
 
-from AnnounceLocal import AnnounceLocalPlugin
-from File import FileServer
-from Test import Spy
+from zeronet.File import FileServer
+from zeronet.Test import Spy
+
+from zeronet.plugins.AnnounceLocal import AnnounceLocalPlugin
 
 @pytest.fixture
 def announcer(file_server, site):

@@ -3,7 +3,7 @@ import os.path
 import binascii
 import random
 from bisect import bisect_left
-import Resources
+from zeronet import Resources
 
 from . import wordlists
 

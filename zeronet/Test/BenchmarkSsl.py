@@ -13,9 +13,9 @@ import gevent
 
 from gevent.server import StreamServer
 from gevent.pool import Pool
-from Config import config
+from zeronet.Config import config
 config.parse()
-from util import SslPatch
+from zeronet.util import SslPatch
 
 # Server
 socks = []

@@ -5,9 +5,9 @@ import inspect
 import re
 import html
 import string
-import Resources
+from zeronet import Resources
 
-from Config import config
+from zeronet.Config import config
 
 translates = []
 
@@ -37,7 +37,7 @@ class Translate(dict):
 
         if config.debug:
             # Auto reload FileRequest on change
-            from Debug import DebugReloader
+            from zeronet.Debug import DebugReloader
             DebugReloader.watcher.addCallback(self.load)
 
         translates.append(self)

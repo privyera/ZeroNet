@@ -1,7 +1,7 @@
 import logging
 import time
 
-from Config import config
+from zeronet.Config import config
 
 if config.debug and config.action == "main":
     try:

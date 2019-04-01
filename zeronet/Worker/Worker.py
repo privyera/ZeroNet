@@ -2,8 +2,8 @@ import time
 
 import gevent
 
-from Debug import Debug
-from Config import config
+from zeronet.Debug import Debug
+from zeronet.Config import config
 
 
 class Worker(object):

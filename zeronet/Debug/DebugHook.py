@@ -6,14 +6,14 @@ import importlib
 import gevent
 import gevent.hub
 
-from Config import config
+from zeronet.Config import config
 from . import Debug
 
 last_error = None
 
 def shutdown(reason="Unknown"):
     logging.info("Shutting down (reason: %s)..." % reason)
-    import main
+    from zeronet import main
     if "file_server" in dir(main):
         try:
             gevent.spawn(main.file_server.stop)

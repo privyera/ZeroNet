@@ -4,8 +4,8 @@ import collections
 
 import gevent
 
-from util import helper
-from Plugin import PluginManager
+from zeronet.util import helper
+from zeronet.Plugin import PluginManager
 from . import ContentDbPlugin
 
 
@@ -13,7 +13,7 @@ from . import ContentDbPlugin
 @PluginManager.afterLoad
 def importPluginnedClasses():
     global config
-    from Config import config
+    from zeronet.Config import config
 
 
 def processAccessLog():

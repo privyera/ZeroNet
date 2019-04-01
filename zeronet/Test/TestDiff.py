@@ -1,6 +1,6 @@
 import io
 
-from util import Diff
+from zeronet.util import Diff
 
 
 class TestDiff:

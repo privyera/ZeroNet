@@ -10,9 +10,9 @@ from gevent.pywsgi import WSGIHandler
 from geventwebsocket.handler import WebSocketHandler
 
 from .UiRequest import UiRequest
-from Site import SiteManager
-from Config import config
-from Debug import Debug
+from zeronet.Site import SiteManager
+from zeronet.Config import config
+from zeronet.Debug import Debug
 import importlib
 
 
@@ -34,7 +34,7 @@ class UiWSGIHandler(WSGIHandler):
             except Exception as err:
                 logging.error("UiWSGIHandler websocket error: %s" % Debug.formatException(err))
                 if config.debug:  # Allow websocket errors to appear on /Debug
-                    import main
+                    from zeronet import main
                     main.DebugHook.handleError()
         else:  # Standard HTTP request
             try:
@@ -42,7 +42,7 @@ class UiWSGIHandler(WSGIHandler):
             except Exception as err:
                 logging.error("UiWSGIHandler error: %s" % Debug.formatException(err))
                 if config.debug:  # Allow websocket errors to appear on /Debug
-                    import main
+                    from zeronet import main
                     main.DebugHook.handleError()
 
     def handle(self):
@@ -87,7 +87,7 @@ class UiServer:
 
     # After WebUI started
     def afterStarted(self):
-        from util import Platform
+        from zeronet.util import Platform
         Platform.setMaxfilesopened(config.max_files_opened)
 
     # Handle WSGI request
@@ -124,7 +124,7 @@ class UiServer:
 
         if config.debug:
             # Auto reload UiRequest on change
-            from Debug import DebugReloader
+            from zeronet.Debug import DebugReloader
             DebugReloader.watcher.addCallback(self.reload)
 
             # Werkzeug Debugger
@@ -133,7 +133,7 @@ class UiServer:
                 handler = DebuggedApplication(self.handleRequest, evalex=True)
             except Exception as err:
                 self.log.info("%s: For debugging please download Werkzeug (http://werkzeug.pocoo.org/)" % err)
-                from Debug import DebugReloader
+                from zeronet.Debug import DebugReloader
         self.log.write = lambda msg: self.log.debug(msg.strip())  # For Wsgi access.log
         self.log.info("--------------------------------------")
         if ":" in config.ui_ip:
@@ -162,7 +162,7 @@ class UiServer:
             self.server.serve_forever()
         except Exception as err:
             self.log.error("Web interface bind error, must be running already, exiting.... %s" % err)
-            import main
+            from zeronet import main
             main.file_server.stop()
         self.log.debug("Stopped.")
 
@@ -186,7 +186,7 @@ class UiServer:
         self.log.debug("Socket closed: %s" % sock_closed)
         time.sleep(0.1)
         if config.debug:
-            from Debug import DebugReloader
+            from zeronet.Debug import DebugReloader
             DebugReloader.watcher.stop()
 
         self.server.socket.close()

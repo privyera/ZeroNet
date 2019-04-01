@@ -1,9 +1,9 @@
 import time
 import itertools
 
-from Plugin import PluginManager
-from util import helper
-from Crypt import CryptRsa
+from zeronet.Plugin import PluginManager
+from zeronet.util import helper
+from zeronet.Crypt import CryptRsa
 
 allow_reload = False  # No source reload supported in this plugin
 time_full_announced = {}  # Tracker address: Last announced all site to tracker
@@ -14,8 +14,8 @@ connection_pool = {}  # Tracker address: Peer object
 @PluginManager.afterLoad
 def importHostClasses():
     global Peer, AnnounceError
-    from Peer import Peer
-    from Site.SiteAnnouncer import AnnounceError
+    from zeronet.Peer import Peer
+    from zeronet.Site.SiteAnnouncer import AnnounceError
 
 
 # Process result got back from tracker
@@ -68,7 +68,7 @@ class SiteAnnouncerPlugin(object):
             if time.time() - time_full_announced.get(tracker_address, 0) < 60 * 15:  # No reannounce all sites within short time
                 return None
             time_full_announced[tracker_address] = time.time()
-            from Site import SiteManager
+            from zeronet.Site import SiteManager
             sites = [site for site in SiteManager.site_manager.sites.values() if site.isServing()]
 
         # Create request

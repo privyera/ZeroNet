@@ -4,7 +4,7 @@ import json
 import re
 
 def update():
-    from Config import config
+    from zeronet.Config import config
 
     if getattr(sys, 'source_update_dir', False):
         if not os.path.isdir(sys.source_update_dir):
@@ -80,7 +80,7 @@ if __name__ == "__main__":
     from gevent import monkey
     monkey.patch_all()
 
-    from Config import config
+    from zeronet.Config import config
     config.parse(silent=True)
 
     try:

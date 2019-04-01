@@ -7,11 +7,11 @@ try:
 except:
     from gevent.lock import RLock
 
-from Config import config
-from Debug import Debug
-from util import Msgpack
-from Crypt import CryptConnection
-from util import helper
+from zeronet.Config import config
+from zeronet.Debug import Debug
+from zeronet.util import Msgpack
+from zeronet.Crypt import CryptConnection
+from zeronet.util import helper
 
 
 class Connection(object):
@@ -129,7 +129,7 @@ class Connection(object):
             if config.trackers_proxy == "tor":
                 self.sock = self.server.tor_manager.createSocket(self.ip, self.port)
             else:
-                from lib.PySocks import socks
+                from zeronet.lib.PySocks import socks
                 self.sock = socks.socksocket()
                 proxy_ip, proxy_port = config.trackers_proxy.split(":")
                 self.sock.set_proxy(socks.PROXY_TYPE_SOCKS5, proxy_ip, int(proxy_port))

@@ -1,10 +1,10 @@
 import re
-from Plugin import PluginManager
+from zeronet.Plugin import PluginManager
 
 @PluginManager.registerTo("UiRequest")
 class UiRequestPlugin(object):
 	def __init__(self, server = None):
-		from Site import SiteManager
+		from zeronet.Site import SiteManager
 		self.site_manager = SiteManager.site_manager
 		super(UiRequestPlugin, self).__init__(server)
 

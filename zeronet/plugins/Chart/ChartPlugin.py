@@ -3,9 +3,9 @@ import itertools
 
 import gevent
 
-from Config import config
-from util import helper
-from Plugin import PluginManager
+from zeronet.Config import config
+from zeronet.util import helper
+from zeronet.Plugin import PluginManager
 from .ChartDb import ChartDb
 from .ChartCollector import ChartCollector
 

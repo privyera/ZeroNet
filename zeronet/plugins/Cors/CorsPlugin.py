@@ -2,8 +2,8 @@ import re
 import html
 import copy
 
-from Plugin import PluginManager
-from Translate import Translate
+from zeronet.Plugin import PluginManager
+from zeronet.Translate import Translate
 
 if "_" not in locals():
     from . import languages

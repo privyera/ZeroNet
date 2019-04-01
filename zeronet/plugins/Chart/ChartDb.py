@@ -1,5 +1,5 @@
-from Config import config
-from Db.Db import Db
+from zeronet.Config import config
+from zeronet.Db.Db import Db
 import time
 
 

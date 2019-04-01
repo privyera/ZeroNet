@@ -19,7 +19,7 @@ def main():
         os.chdir(app_dir)  # Change working dir to zeronet.py dir
         sys.path.insert(0, os.path.join(app_dir, "src/lib"))  # External liblary directory
         sys.path.insert(0, os.path.join(app_dir, "src"))  # Imports relative to src
-        import main
+        import zeronet.main as main
         main.start()
         if main.update_after_shutdown:  # Updater
             import gc
@@ -42,7 +42,7 @@ def main():
         except Exception as log_err:
             print("Failed to log error:", log_err)
             traceback.print_exc()
-        from Config import config
+        from zeronet.Config import config
         traceback.print_exc(file=open(config.log_dir + "/error.log", "a"))
 
     if main and (main.update_after_shutdown or main.restart_after_shutdown):  # Updater

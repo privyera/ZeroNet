@@ -1,7 +1,7 @@
 import hashlib
 import base64
 
-import lib.pybitcointools as btctools
+import zeronet.lib.pybitcointools as btctools
 
 ecc_cache = {}
 

@@ -7,10 +7,10 @@ import atexit
 
 import gevent
 
-from Plugin import PluginManager
-from Content import ContentDb
-from Config import config
-from util import helper
+from zeronet.Plugin import PluginManager
+from zeronet.Content import ContentDb
+from zeronet.Config import config
+from zeronet.util import helper
 
 
 @PluginManager.acceptPlugins

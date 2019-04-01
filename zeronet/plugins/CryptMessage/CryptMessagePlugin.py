@@ -1,9 +1,9 @@
 import base64
 import os
 
-from Plugin import PluginManager
-from Crypt import CryptBitcoin, CryptHash
-import lib.pybitcointools as btctools
+from zeronet.Plugin import PluginManager
+from zeronet.Crypt import CryptBitcoin, CryptHash
+import zeronet.lib.pybitcointools as btctools
 
 from . import CryptMessage
 

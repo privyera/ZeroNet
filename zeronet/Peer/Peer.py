@@ -7,11 +7,11 @@ import collections
 import gevent
 
 import io
-from Debug import Debug
-from Config import config
-from util import helper
+from zeronet.Debug import Debug
+from zeronet.Config import config
+from zeronet.util import helper
 from .PeerHashfield import PeerHashfield
-from Plugin import PluginManager
+from zeronet.Plugin import PluginManager
 
 if config.use_tempfiles:
     import tempfile
@@ -91,7 +91,7 @@ class Peer(object):
                 elif self.site:
                     connection_server = self.site.connection_server
                 else:
-                    import main
+                    from zeronet import main
                     connection_server = main.file_server
                 self.connection = connection_server.getConnection(self.ip, self.port, site=self.site, is_tracker_connection=self.is_tracker_connection)
                 self.reputation += 1

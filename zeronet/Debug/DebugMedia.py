@@ -5,8 +5,8 @@ import logging
 import time
 import functools
 
-from Config import config
-from util import helper
+from zeronet.Config import config
+from zeronet.util import helper
 
 
 # Find files with extension in path
@@ -119,7 +119,7 @@ def merge(merged_path):
 
     merged = b"\n".join(parts)
     if ext == "css":  # Vendor prefix css
-        from lib.cssvendor import cssvendor
+        from zeronet.lib.cssvendor import cssvendor
         merged = cssvendor.prefix(merged)
     merged = merged.replace(b"\r", b"")
     open(merged_path, "wb").write(merged)

@@ -4,10 +4,10 @@ import os
 import ssl
 import hashlib
 import random
-import Resources
+from zeronet import Resources
 
-from Config import config
-from util import helper
+from zeronet.Config import config
+from zeronet.util import helper
 
 from lib import openssl
 

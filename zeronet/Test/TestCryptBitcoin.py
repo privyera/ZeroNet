@@ -1,4 +1,4 @@
-from Crypt import CryptBitcoin
+from zeronet.Crypt import CryptBitcoin
 
 
 class TestCryptBitcoin:

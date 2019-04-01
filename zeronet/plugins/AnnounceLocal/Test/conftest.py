@@ -1,4 +1,4 @@
-from src.Test.conftest import *
+from zeronet.Test.conftest import *
 
-from Config import config
+from zeronet.Config import config
 config.broadcast_port = 0

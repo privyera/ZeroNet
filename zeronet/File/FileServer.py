@@ -7,15 +7,16 @@ import gevent
 import gevent.pool
 from gevent.server import StreamServer
 
-import util
-from util import helper
-from Config import config
+import zeronet.util as util
+from zeronet.util import helper
+from zeronet.util import Noparallel
+from zeronet.Config import config
 from .FileRequest import FileRequest
-from Peer import PeerPortchecker
-from Site import SiteManager
-from Connection import ConnectionServer
-from Plugin import PluginManager
-from Debug import Debug
+from zeronet.Peer import PeerPortchecker
+from zeronet.Site import SiteManager
+from zeronet.Connection import ConnectionServer
+from zeronet.Plugin import PluginManager
+from zeronet.Debug import Debug
 
 
 @PluginManager.acceptPlugins
@@ -350,7 +351,7 @@ class FileServer(ConnectionServer):
         self.sites = self.site_manager.list()
         if config.debug:
             # Auto reload FileRequest on change
-            from Debug import DebugReloader
+            from zeronet.Debug import DebugReloader
             DebugReloader.watcher.addCallback(self.reload)
 
         if check_sites:  # Open port, Update sites, Check files integrity

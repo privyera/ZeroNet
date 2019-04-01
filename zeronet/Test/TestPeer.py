@@ -3,9 +3,9 @@ import io
 
 import pytest
 
-from File import FileServer
-from File import FileRequest
-from Crypt import CryptHash
+from zeronet.File import FileServer
+from zeronet.File import FileRequest
+from zeronet.Crypt import CryptHash
 from . import Spy
 
 
