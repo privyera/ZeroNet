@@ -55,8 +55,8 @@ class Site(object):
         self.storage = SiteStorage(self, allow_create=allow_create)  # Save and load site files
         self.content_manager = ContentManager(self)
         self.content_manager.loadContents()  # Load content.json files
-        if "main" in sys.modules:  # import main has side-effects, breaks tests
-            import main
+        if "zeronet.main" in sys.modules:  # import main has side-effects, breaks tests
+            from zeronet import main
             if "file_server" in dir(main):  # Use global file server by default if possible
                 self.connection_server = main.file_server
             else:

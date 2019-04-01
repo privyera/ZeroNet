@@ -49,7 +49,7 @@ class TestUpnpPunch(object):
     def test_perform_m_search(self, mock_socket):
         local_ip = '127.0.0.1'
 
-        with mock.patch('util.UpnpPunch.socket.socket',
+        with mock.patch('zeronet.util.UpnpPunch.socket.socket',
                         return_value=mock_socket):
             result = upnp.perform_m_search(local_ip)
             assert result == 'Hello'
@@ -60,7 +60,7 @@ class TestUpnpPunch(object):
     def test_perform_m_search_socket_error(self, mock_socket):
         mock_socket.recv.side_effect = socket.error('Timeout error')
 
-        with mock.patch('util.UpnpPunch.socket.socket',
+        with mock.patch('zeronet.util.UpnpPunch.socket.socket',
                         return_value=mock_socket):
             with pytest.raises(upnp.UpnpError):
                 upnp.perform_m_search('127.0.0.1')
@@ -146,7 +146,7 @@ class TestUpnpPunch(object):
 
     def test_send_requests_success(self):
         with mock.patch(
-                'util.UpnpPunch._send_soap_request') as mock_send_request:
+                'zeronet.util.UpnpPunch._send_soap_request') as mock_send_request:
             mock_send_request.return_value = mock.MagicMock(status=200)
             upnp._send_requests(['msg'], None, None, None)
 
@@ -154,7 +154,7 @@ class TestUpnpPunch(object):
 
     def test_send_requests_failed(self):
         with mock.patch(
-                'util.UpnpPunch._send_soap_request') as mock_send_request:
+                'zeronet.util.UpnpPunch._send_soap_request') as mock_send_request:
             mock_send_request.return_value = mock.MagicMock(status=500)
             with pytest.raises(upnp.UpnpError):
                 upnp._send_requests(['msg'], None, None, None)
@@ -164,9 +164,9 @@ class TestUpnpPunch(object):
     def test_collect_idg_data(self):
         pass
 
-    @mock.patch('util.UpnpPunch._get_local_ips')
-    @mock.patch('util.UpnpPunch._collect_idg_data')
-    @mock.patch('util.UpnpPunch._send_requests')
+    @mock.patch('zeronet.util.UpnpPunch._get_local_ips')
+    @mock.patch('zeronet.util.UpnpPunch._collect_idg_data')
+    @mock.patch('zeronet.util.UpnpPunch._send_requests')
     def test_ask_to_open_port_success(self, mock_send_requests,
                                       mock_collect_idg, mock_local_ips):
         mock_collect_idg.return_value = {'upnp_schema': 'schema-yo'}
@@ -183,9 +183,9 @@ class TestUpnpPunch(object):
         assert '15441' in soap_msg
         assert 'schema-yo' in soap_msg
 
-    @mock.patch('util.UpnpPunch._get_local_ips')
-    @mock.patch('util.UpnpPunch._collect_idg_data')
-    @mock.patch('util.UpnpPunch._send_requests')
+    @mock.patch('zeronet.util.UpnpPunch._get_local_ips')
+    @mock.patch('zeronet.util.UpnpPunch._collect_idg_data')
+    @mock.patch('zeronet.util.UpnpPunch._send_requests')
     def test_ask_to_open_port_failure(self, mock_send_requests,
                                       mock_collect_idg, mock_local_ips):
         mock_local_ips.return_value = ['192.168.0.12']
@@ -195,8 +195,8 @@ class TestUpnpPunch(object):
         with pytest.raises(upnp.UpnpError):
             upnp.ask_to_open_port()
 
-    @mock.patch('util.UpnpPunch._collect_idg_data')
-    @mock.patch('util.UpnpPunch._send_requests')
+    @mock.patch('zeronet.util.UpnpPunch._collect_idg_data')
+    @mock.patch('zeronet.util.UpnpPunch._send_requests')
     def test_orchestrate_soap_request(self, mock_send_requests,
                                       mock_collect_idg):
         soap_mock = mock.MagicMock()
@@ -211,8 +211,8 @@ class TestUpnpPunch(object):
             *args[:2] + ['upnp-test', 'UDP', 'schema-yo'])
         assert mock_send_requests.called
 
-    @mock.patch('util.UpnpPunch._collect_idg_data')
-    @mock.patch('util.UpnpPunch._send_requests')
+    @mock.patch('zeronet.util.UpnpPunch._collect_idg_data')
+    @mock.patch('zeronet.util.UpnpPunch._send_requests')
     def test_orchestrate_soap_request_without_desc(self, mock_send_requests,
                                                    mock_collect_idg):
         soap_mock = mock.MagicMock()
@@ -243,8 +243,8 @@ class TestUpnpPunch(object):
         assert settings['protocol'] in msg
         assert settings['upnp_schema'] in msg
 
-    @mock.patch('util.UpnpPunch._get_local_ips')
-    @mock.patch('util.UpnpPunch._orchestrate_soap_request')
+    @mock.patch('zeronet.util.UpnpPunch._get_local_ips')
+    @mock.patch('zeronet.util.UpnpPunch._orchestrate_soap_request')
     def test_communicate_with_igd_success(self, mock_orchestrate,
                                           mock_get_local_ips):
         mock_get_local_ips.return_value = ['192.168.0.12']
@@ -252,8 +252,8 @@ class TestUpnpPunch(object):
         assert mock_get_local_ips.called
         assert mock_orchestrate.called
 
-    @mock.patch('util.UpnpPunch._get_local_ips')
-    @mock.patch('util.UpnpPunch._orchestrate_soap_request')
+    @mock.patch('zeronet.util.UpnpPunch._get_local_ips')
+    @mock.patch('zeronet.util.UpnpPunch._orchestrate_soap_request')
     def test_communicate_with_igd_succeed_despite_single_failure(
             self, mock_orchestrate, mock_get_local_ips):
         mock_get_local_ips.return_value = ['192.168.0.12']
@@ -262,8 +262,8 @@ class TestUpnpPunch(object):
         assert mock_get_local_ips.called
         assert mock_orchestrate.called
 
-    @mock.patch('util.UpnpPunch._get_local_ips')
-    @mock.patch('util.UpnpPunch._orchestrate_soap_request')
+    @mock.patch('zeronet.util.UpnpPunch._get_local_ips')
+    @mock.patch('zeronet.util.UpnpPunch._orchestrate_soap_request')
     def test_communicate_with_igd_total_failure(self, mock_orchestrate,
                                                 mock_get_local_ips):
         mock_get_local_ips.return_value = ['192.168.0.12']

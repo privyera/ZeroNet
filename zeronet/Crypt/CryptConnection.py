@@ -8,8 +8,7 @@ from zeronet import Resources
 
 from zeronet.Config import config
 from zeronet.util import helper
-
-from lib import openssl
+from zeronet.lib import openssl
 
 class CryptConnectionManager:
     def __init__(self):

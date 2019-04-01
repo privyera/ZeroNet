@@ -783,11 +783,11 @@ class UiRequest(object):
     def actionConsole(self):
         import sys
         sites = self.server.sites
-        main = sys.modules["main"]
+        main = sys.modules["zeronet.main"]
 
         def bench(code, times=100, init=None):
             sites = self.server.sites
-            main = sys.modules["main"]
+            main = sys.modules["zeronet.main"]
             s = time.time()
             if init:
                 eval(compile(init, '<string>', 'exec'), globals(), locals())

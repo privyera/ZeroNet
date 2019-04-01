@@ -36,7 +36,7 @@ class TestConnection:
         assert file_server != client
 
         # Connect to myself
-        with mock.patch('Config.config.ip_local', return_value=[]):  # SSL not used for local ips
+        with mock.patch('zeronet.Config.config.ip_local', return_value=[]):  # SSL not used for local ips
             connection = client.getConnection(file_server.ip, 1544)
 
         assert len(file_server.connections) == 1
@@ -59,7 +59,7 @@ class TestConnection:
         crypt_supported_bk = CryptConnection.manager.crypt_supported
         CryptConnection.manager.crypt_supported = []
 
-        with mock.patch('Config.config.ip_local', return_value=[]):  # SSL not used for local ips
+        with mock.patch('zeronet.Config.config.ip_local', return_value=[]):  # SSL not used for local ips
             connection = client.getConnection(file_server.ip, 1544)
         assert len(file_server.connections) == 1
         assert not connection.crypt

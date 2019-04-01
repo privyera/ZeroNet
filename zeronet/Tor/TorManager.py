@@ -82,8 +82,8 @@ class TorManager(object):
 
     def setStatus(self, status):
         self.status = status
-        if "main" in sys.modules: # import main has side-effects, breaks tests
-            import main
+        if "zeronet.main" in sys.modules: # import main has side-effects, breaks tests
+            from zeronet import main
             if "ui_server" in dir(main):
                 main.ui_server.updateWebsocket()
 
