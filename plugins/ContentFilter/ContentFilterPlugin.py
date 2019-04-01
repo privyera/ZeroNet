@@ -9,9 +9,13 @@ from Config import config
 
 from .ContentFilterStorage import ContentFilterStorage
 
+from . import media
+
+MEDIA_URL = 'uimedia/plugins/contentfilter'
 
 if "_" not in locals():
-    _ = Translate("plugins/ContentFilter/languages/")
+    from . import languages
+    _ = Translate(languages)
 
 
 @PluginManager.registerTo("SiteManager")
@@ -202,15 +206,16 @@ class UiRequestPlugin(object):
 
             self.sendHeader(extra_headers=extra_headers, script_nonce=script_nonce)
             return iter([super(UiRequestPlugin, self).renderWrapper(
-                site, path, "uimedia/plugins/contentfilter/blocklisted.html?address=" + address,
+                site, path, MEDIA_URL + "/blocklisted.html?address=" + address,
                 "Blacklisted site", extra_headers, show_loadingscreen=False, script_nonce=script_nonce
             )])
         else:
             return super(UiRequestPlugin, self).actionWrapper(path, extra_headers)
 
     def actionUiMedia(self, path, *args, **kwargs):
-        if path.startswith("/uimedia/plugins/contentfilter/"):
-            file_path = path.replace("/uimedia/plugins/contentfilter/", "plugins/ContentFilter/media/")
-            return self.actionFile(file_path)
-        else:
+        try:
+            res_pkg, res_file = self.resourceFromURL(path, media, MEDIA_URL)
+            with Resources.path(resource_pkg, inner_file) as file_path:
+                return self.actionFile(file_path)
+        except self.ResourceException:
             return super(UiRequestPlugin, self).actionUiMedia(path)
