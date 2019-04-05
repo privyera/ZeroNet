@@ -31,7 +31,7 @@
 
 ## 原理
 
-* 在你运行`zeronet.py`后你将可以通过`http://127.0.0.1:43110/{zeronet_address}` (比如.
+* 在你运行`zeronet`后你将可以通过`http://127.0.0.1:43110/{zeronet_address}` (比如.
 `http://127.0.0.1:43110/1HeLLo4uzjaLetFx6NH3PMwFP3qbRbTf3D`)。访问 zeronet 中的站点。
 
 * 在你浏览 zeronet 站点时，客户端会尝试通过 BitTorrent 网络来寻找可用的节点，从而下载需要的文件 (html, css, js...)
@@ -82,7 +82,7 @@
 * `wget https://github.com/HelloZeroNet/ZeroNet/archive/master.tar.gz`
 * `tar xvpfz master.tar.gz`
 * `cd ZeroNet-master`
-* 执行 `python2 zeronet.py` 来启动
+* 执行 `zeronet` 来启动
 * 在你的浏览器中打开 http://127.0.0.1:43110/
 
 ### [FreeBSD](https://www.freebsd.org/)
@@ -97,7 +97,7 @@
 * `vagrant up`
 * 通过 `vagrant ssh` 连接到 VM
 * `cd /vagrant`
-* 运行 `python2 zeronet.py --ui_ip 0.0.0.0`
+* 运行 `zeronet --ui_ip 0.0.0.0`
 * 在你的浏览器中打开 http://127.0.0.1:43110/
 
 ### [Docker](https://www.docker.com/)
@@ -113,7 +113,7 @@
 * `virtualenv env`
 * `source env/bin/activate`
 * `pip install msgpack gevent`
-* `python2 zeronet.py`
+* `zeronet`
 * 在你的浏览器中打开 http://127.0.0.1:43110/
 
 ## 现有限制
@@ -130,13 +130,13 @@
 如果 zeronet 在运行，把它关掉
 执行：
 ```bash
-$ zeronet.py siteCreate
+$ zeronet siteCreate
 ...
 - Site private key: 23DKQpzxhbVBrAtvLEc2uvk7DZweh4qL3fn3jpM3LgHDczMK2TtYUq
 - Site address: 13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2
 ...
 - Site created!
-$ zeronet.py
+$ zeronet
 ...
 ```
 
@@ -153,7 +153,7 @@ $ zeronet.py
   在你改好之后:
 
 ```bash
-$ zeronet.py siteSign 13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2
+$ zeronet siteSign 13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2
 - Signing site: 13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2...
 Private key (input hidden):
 ```
@@ -161,7 +161,7 @@ Private key (input hidden):
 * 输入你在创建站点时获得的私钥
 
 ```bash
-$ zeronet.py sitePublish 13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2
+$ zeronet sitePublish 13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2
 ...
 Site:13DNDk..bhC2 Publishing to 3/10 peers...
 Site:13DNDk..bhC2 Successfuly published to 3 peers

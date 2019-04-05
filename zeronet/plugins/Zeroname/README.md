@@ -30,7 +30,7 @@ You can start your node : `./namecoind`
 
 ### Create a Zeroname site
 
-You will also need to create a site `python zeronet.py createSite` and regitser the info.
+You will also need to create a site `zeronet createSite` and regitser the info.
 
 In the site you will need to create a file `./data/<your-site>/data/names.json` with this is it:
 ```

@@ -32,7 +32,7 @@
 
 ## Как это работает?
 
-* После запуска `zeronet.py` вы сможете посетить зайты (zeronet сайты) используя адрес
+* После запуска `zeronet` вы сможете посетить зайты (zeronet сайты) используя адрес
   `http://127.0.0.1:43110/{zeronet_address}`
 (например. `http://127.0.0.1:43110/1HeLLo4uzjaLetFx6NH3PMwFP3qbRbTf3D`).
 * Когда вы посещаете новый сайт zeronet, он пытается найти пиров с помощью BitTorrent
@@ -84,7 +84,7 @@
 * `wget https://github.com/HelloZeroNet/ZeroNet/archive/master.tar.gz`
 * `tar xvpfz master.tar.gz`
 * `cd ZeroNet-master`
-* Запустите с помощью `python2 zeronet.py`
+* Запустите с помощью `zeronet`
 * Откройте http://127.0.0.1:43110/ в вашем браузере.
 
 ### [Arch Linux](https://www.archlinux.org)
@@ -122,7 +122,7 @@ article](https://wiki.archlinux.org/index.php/ZeroNet) для дальнейше
 * `vagrant up`
 * Подключитесь к VM с помощью `vagrant ssh`
 * `cd /vagrant`
-* Запустите `python2 zeronet.py --ui_ip 0.0.0.0`
+* Запустите `zeronet --ui_ip 0.0.0.0`
 * Откройте http://127.0.0.1:43110/ в вашем браузере.
 
 ### [Docker](https://www.docker.com/)
@@ -139,7 +139,7 @@ article](https://wiki.archlinux.org/index.php/ZeroNet) для дальнейше
 * `virtualenv env`
 * `source env/bin/activate`
 * `pip install msgpack gevent`
-* `python2 zeronet.py`
+* `zeronet`
 * Откройте http://127.0.0.1:43110/ в вашем браузере.
 
 ## Текущие ограничения
@@ -155,13 +155,13 @@ article](https://wiki.archlinux.org/index.php/ZeroNet) для дальнейше
 Завершите работу zeronet, если он запущен
 
 ```bash
-$ zeronet.py siteCreate
+$ zeronet siteCreate
 ...
 - Site private key (Приватный ключ сайта): 23DKQpzxhbVBrAtvLEc2uvk7DZweh4qL3fn3jpM3LgHDczMK2TtYUq
 - Site address (Адрес сайта): 13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2
 ...
 - Site created! (Сайт создан)
-$ zeronet.py
+$ zeronet
 ...
 ```
 
@@ -177,7 +177,7 @@ $ zeronet.py
   Когда закончите с изменением:
 
 ```bash
-$ zeronet.py siteSign 13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2
+$ zeronet siteSign 13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2
 - Signing site (Подпись сайта): 13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2...
 Private key (Приватный ключ) (input hidden):
 ```
@@ -185,7 +185,7 @@ Private key (Приватный ключ) (input hidden):
 * Введите секретный ключ, который вы получили при создании сайта, потом:
 
 ```bash
-$ zeronet.py sitePublish 13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2
+$ zeronet sitePublish 13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2
 ...
 Site:13DNDk..bhC2 Publishing to 3/10 peers...
 Site:13DNDk..bhC2 Successfuly published to 3 peers

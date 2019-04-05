@@ -520,7 +520,7 @@ class Actions(object):
 
 
 actions = Actions()
-# Starts here when running zeronet.py
+# Starts here when running zeronet
 
 
 def start():

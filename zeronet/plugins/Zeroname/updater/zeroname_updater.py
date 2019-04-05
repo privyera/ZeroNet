@@ -161,7 +161,7 @@ names_path = "%s/data/%s/data/names.json" % (config["zeronet_path"], config["sit
 os.chdir(config["zeronet_path"])  # Change working dir - tells script where Zeronet install is.
 
 # Parameters to sign and publish
-command_sign_publish = [sys.executable, "zeronet.py", "siteSign", config["site"], config["privatekey"], "--publish"]
+command_sign_publish = [sys.executable, "zeronet", "siteSign", config["site"], config["privatekey"], "--publish"]
 if sys.platform == 'win32':
     command_sign_publish = ['"%s"' % param for param in command_sign_publish]
 

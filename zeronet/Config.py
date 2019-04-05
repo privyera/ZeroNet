@@ -298,7 +298,7 @@ class Config(object):
                 trackers_file_path = self.trackers_file
             elif self.trackers_file.startswith("{data_dir}"):  # Relative to data_dir
                 trackers_file_path = self.trackers_file.replace("{data_dir}", self.data_dir)
-            else:  # Relative to zeronet.py
+            else:  # Relative to zeronet
                 trackers_file_path = self.start_dir + "/" + self.trackers_file
 
             for line in open(trackers_file_path):

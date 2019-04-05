@@ -138,7 +138,7 @@ class ActionsPlugin(object):
         cmd = " ".join(args)
 
         # Dont open browser on autorun
-        cmd = cmd.replace("start.py", "zeronet.py").replace('"--open_browser"', "").replace('"default_browser"', "").strip()
+        cmd = cmd.replace("start.py", "zeronet").replace('"--open_browser"', "").replace('"default_browser"', "").strip()
         cmd += ' --open_browser ""'
 
         return """

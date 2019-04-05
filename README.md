@@ -33,7 +33,7 @@ Decentralized websites using Bitcoin crypto and the BitTorrent network - https:/
 
 ## How does it work?
 
-* After starting `zeronet.py` you will be able to visit zeronet sites using
+* After starting `zeronet` you will be able to visit zeronet sites using
   `http://127.0.0.1:43110/{zeronet_address}` (eg.
   `http://127.0.0.1:43110/1HeLLo4uzjaLetFx6NH3PMwFP3qbRbTf3D`).
 * When you visit a new zeronet site, it tries to find peers using the BitTorrent
@@ -98,7 +98,7 @@ Install Python module dependencies either:
 
 Start Zeronet:
 
-    python3 zeronet.py
+    python3 zeronet
 
 Open the ZeroHello landing page in your browser by navigating to:
 
@@ -117,13 +117,13 @@ Open the ZeroHello landing page in your browser by navigating to:
 Shut down zeronet if you are running it already
 
 ```bash
-$ zeronet.py siteCreate
+$ zeronet siteCreate
 ...
 - Site private key: 23DKQpzxhbVBrAtvLEc2uvk7DZweh4qL3fn3jpM3LgHDczMK2TtYUq
 - Site address: 13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2
 ...
 - Site created!
-$ zeronet.py
+$ zeronet
 ...
 ```
 
@@ -139,7 +139,7 @@ Next steps: [ZeroNet Developer Documentation](https://zeronet.io/docs/site_devel
   After you're finished:
 
 ```bash
-$ zeronet.py siteSign 13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2
+$ zeronet siteSign 13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2
 - Signing site: 13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2...
 Private key (input hidden):
 ```
@@ -147,7 +147,7 @@ Private key (input hidden):
 * Enter the private key you got when you created the site, then:
 
 ```bash
-$ zeronet.py sitePublish 13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2
+$ zeronet sitePublish 13DNDkMUExRf9Xa9ogwPKqp7zyHFEqbhC2
 ...
 Site:13DNDk..bhC2 Publishing to 3/10 peers...
 Site:13DNDk..bhC2 Successfuly published to 3 peers
