@@ -39,9 +39,6 @@ else:
 SITE_URL = "http://127.0.0.1:43110"
 
 TEST_DATA_PATH  = 'zeronet/Test/testdata'
-sys.path.insert(0, os.path.abspath(os.path.dirname(__file__) + "/../lib"))  # External modules directory
-sys.path.insert(0, os.path.abspath(os.path.dirname(__file__) + "/.."))  # Imports relative to src dir
-
 from zeronet.Config import config
 config.argv = ["none"]  # Dont pass any argv to config parser
 config.parse(silent=True, parse_config=False)  # Plugins need to access the configuration
@@ -53,7 +50,6 @@ from zeronet.Plugin import PluginManager
 config.data_dir = TEST_DATA_PATH  # Use test data for unittests
 config.debug = True
 
-os.chdir(os.path.abspath(os.path.dirname(__file__) + "/../.."))  # Set working dir
 
 all_loaded = PluginManager.plugin_manager.loadPlugins()
 assert all_loaded, "Not all plugin loaded successfully"
