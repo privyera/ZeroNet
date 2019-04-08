@@ -5,7 +5,7 @@
 import sys
 
 # ZeroNet Modules
-import zeronet
+import zeronet_launcher as zeronet
 
 
 def main():

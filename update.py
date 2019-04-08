@@ -75,7 +75,7 @@ def update():
     return False
 
 if __name__ == "__main__":
-    sys.path.insert(0, os.path.join(os.path.dirname(__file__), "src"))  # Imports relative to src
+    sys.path.insert(0, os.path.dirname(__file__))  # import from source tree
 
     from gevent import monkey
     monkey.patch_all()
